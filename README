@@ -1,0 +1,10 @@
+Enter up to four strings and their replacements in the Configuration Manager.  Then set the 'do_replace'
+option to true.  When the page is loaded into the editor the plugn will do the search and 
+replacement.  
+
+The plugin keeps track of the pages which it has processed and will not re-process the same page twice
+during the same search and replace session.  To start a new session, set the 'do_replace' option to false,
+save the updated configuration, then reset it to true and again save.
+
+
+
