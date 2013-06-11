@@ -74,8 +74,8 @@ class action_plugin_strreplace extends DokuWiki_Action_Plugin {
                   $srch = $this->getConf($s_term);
                   $srch = trim($srch);
                   if($srch) {                    
-                     if(preg_match('/^#(.*?)#/',$srch,$matches)) {                       
-                       $srch = $matches[0] . 'ms';
+                     if(preg_match('/^#.*?#$/',$srch)) {                        
+                       $srch .=  'ms';
                      }                   
                      else $srch = '#'. preg_quote($srch, '#') .'#ms'; 
                      $repl = $this->getConf($r_term);                                          
