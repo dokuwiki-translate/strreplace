@@ -1,4 +1,4 @@
-base epub
+base strreplace
 author Myron Turner
 email turnermm02@shaw.ca
 date 2013-06-10
