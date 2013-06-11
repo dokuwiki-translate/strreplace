@@ -34,7 +34,7 @@ class action_plugin_strreplace extends DokuWiki_Action_Plugin {
     function _ini(&$event, $param) {
         global $ACT,$INFO;
         $this->id = $INFO['id'];                           
-        
+      
         $this->do_replace = $this->getConf('do_replace');              
         if(!$this->do_replace) {
             if(file_exists($this->metafilepath)) {
@@ -73,11 +73,14 @@ class action_plugin_strreplace extends DokuWiki_Action_Plugin {
                   $r_term = 'replace_' . $i;   
                   $srch = $this->getConf($s_term);
                   $srch = trim($srch);
-                  if($srch) {
-                     $srch = '#'. preg_quote($srch) .'#ms';                     
+                  if($srch) {                    
+                     if(preg_match('/^#(.*?)#/',$srch,$matches)) {                       
+                       $srch = $matches[0] . 'ms';
+                     }                   
+                     else $srch = '#'. preg_quote($srch, '#') .'#ms'; 
                      $repl = $this->getConf($r_term);                                          
-                    $event->result = preg_replace($srch,$repl,$event->result, -1, $_count);  
-                    $count += $_count;
+                     $event->result = preg_replace($srch,$repl,$event->result, -1, $_count);  
+                     $count += $_count;                     
                  }   
             }  
              
@@ -95,7 +98,7 @@ class action_plugin_strreplace extends DokuWiki_Action_Plugin {
 
     function write_metafile(&$event, $param) {
        global $ACT;
-       
+      
        if(!is_array($ACT)) return;
        if(!$ACT['save']) return;
        

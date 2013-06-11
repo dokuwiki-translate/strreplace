@@ -6,5 +6,9 @@ The plugin keeps track of the pages which it has processed and will not re-proce
 during the same search and replace session.  To start a new session, set the 'do_replace' option to false,
 save the updated configuration, then reset it to true and again save.
 
-
+The plugin also accepts regular expressions, which must be marked with open and closing hashes:
+    #regex#
+The regex can include parenthesized options, consistent with PHP's use of PCRE,e.g. (?i) to
+set case insensitivity.
+    
 
