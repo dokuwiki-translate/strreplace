@@ -5,7 +5,7 @@ $lang['do_replace'] = "To do a search and replace, set this option to true. "
  . "If set to false after strreplace has been active, all files will be re-processed. " 
  . " See: <a href='https://www.dokuwiki.org/plugin:strreplace#usage'>Usage</a>"
  ."<br /><br />";
-$lang['suspend'] = 'Temporarily suspend search and replace processing; when re-set to false previously preocessed files are not re-processed.';
+$lang['suspend'] = 'Temporarily suspend search and replace processing; when re-set to false previously processed files are not re-processed.';
 $lang['search_1'] = "Search Term 1:";
 $lang['search_2'] = "Search Term 2:";
 $lang['search_3'] = "Search Term 3:";
