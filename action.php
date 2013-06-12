@@ -17,7 +17,7 @@ class action_plugin_strreplace extends DokuWiki_Action_Plugin {
      private $metafilename = 'strreplace:searched';
      private $metafilepath;
      private $id;
-
+     private  $suspend = false;
      /**
       * Registers our callback functions
       */
@@ -29,12 +29,15 @@ class action_plugin_strreplace extends DokuWiki_Action_Plugin {
    
     function __construct() {
           $this->metafilepath = metaFN($this->metafilename, '.ser');
+          $this->suspend = $this->getConf('suspend');                        
     }
     
     function _ini(&$event, $param) {
         global $ACT,$INFO;
+        if($this->suspend) return;
+        
         $this->id = $INFO['id'];                           
-      
+        
         $this->do_replace = $this->getConf('do_replace');              
         if(!$this->do_replace) {
             if(file_exists($this->metafilepath)) {
@@ -57,7 +60,7 @@ class action_plugin_strreplace extends DokuWiki_Action_Plugin {
     function substitutions(&$event, $param) {   
      global $ACT;   
         if($ACT != 'edit') return;
-        
+        if($this->suspend) return;
             if(!$this->do_replace) return;      
             if($event->data[1]) {
                $doc = $event->data[1] . ':' . $event->data[2];
@@ -98,9 +101,10 @@ class action_plugin_strreplace extends DokuWiki_Action_Plugin {
 
     function write_metafile(&$event, $param) {
        global $ACT;
-      
+       
        if(!is_array($ACT)) return;
        if(!$ACT['save']) return;
+       if($this->suspend) return;
        
         $searched = $this->get_metadata();
     
