@@ -5,9 +5,9 @@
  * 
  * @author Rene <wllywlnt@yahoo.com>
  */
-$lang['do_replace']            = 'Om te zoeken en te vervangen, kies deze optie (waar). Voor iedere ZoekTerm moet een Vervanging op de zelfde plaats worden ingevoerd. Indien niet geselecteerd (onwaar) nadat strreplace actief is geweest, zullen alle bestanden weer worden verwerkt. Zie: <a href=\'https://www.dokuwiki.org/plugin:strreplace#usage\'>Usage</a><br /><br />"
+$lang['do_replace']            = 'Kies deze optie om te zoeken en te vervangen (geselecteerd). Voor iedere ZoekTerm moet een Vervanging op de zelfde plaats worden ingevoerd. Indien niet geselecteerd (gedeselecteerd) nadat strreplace actief is geweest, zullen alle bestanden weer worden verwerkt. Zie: <a href=\'https://www.dokuwiki.org/plugin:strreplace#usage\'>Usage</a><br /><br />"
 ';
-$lang['suspend']               = 'Tijdelijk opschorten van zoek en vervang verwerking; wanner re-set naar onwaar zullen eerder verwerkte bestanden niet weer worden verwerkt.';
+$lang['suspend']               = 'Tijdelijk opschorten van zoek en vervang verwerking; wanner niet geselecteerd zullen eerder verwerkte bestanden niet weer worden verwerkt.';
 $lang['search_1']              = 'Zoek Term 1:';
 $lang['search_2']              = 'Zoek Term 2:';
 $lang['search_3']              = 'Zoek Term 3:';
