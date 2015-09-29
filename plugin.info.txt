@@ -1,7 +1,7 @@
 base strreplace
 author Myron Turner
 email turnermm02@shaw.ca
-date 2013-06-11
+date 2015-09-29
 name strreplace
 desc On loade search and replace in wiki files
 url http://www.dokuwiki.org/plugin:strreplace
